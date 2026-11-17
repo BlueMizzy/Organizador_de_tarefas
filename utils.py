@@ -9,12 +9,24 @@ def ler_dados(arquivo):
         return json.load(f)
 
 
-def lista_tarefas(tarefas):
-    if not tarefas:
-        print('Nenhuma tarefa cadastrada.\n')
-    else:
+def lista_tarefas(tarefas, stts=None):
+    if stts == None:
+        if not tarefas:
+            print('Nenhuma tarefa cadastrada.\n')
+        else:
+            for t in tarefas:
+                status = 'Concluída [✔️  ]' if t['concluida'] == True else 'Pendente'
+                print(f'N°: {t["N"]}\n')
+                print(f'TAREFA: {t["tarefa"]} - STATUS: {status}')
+                print('-' * 60)
+
+    if stts is not None:
         for t in tarefas:
-            status = 'Concluída [✔️  ]' if t['concluida'] == True else 'Pendente'
-            print(f'N°: {t["N"]}\n')
-            print(f'TAREFA: {t["tarefa"]} - STATUS: {status}')
-            print('-' * 60)
+            if t['concluida'] == stts:
+                print(f'N°: {t["N"]}\n')
+                print(f'TAREFA: {t["tarefa"]}')
+                print('-' * 40)
+
+# criar um historico de tarefas concluidas de mes e ano
+
+# criar também um menu para as opções
