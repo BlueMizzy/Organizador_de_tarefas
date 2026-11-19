@@ -1,4 +1,4 @@
-import json
+import json, os
 
 def salvar_dados(dicio, arquivo):
     with open(arquivo, 'w', encoding='utf-8') as f:
@@ -9,7 +9,7 @@ def ler_dados(arquivo):
         return json.load(f)
 
 
-def lista_tarefas(tarefas, stts=None):
+def lista_tarefas(tarefas, stts=None):    #lista as tarefas toda organizada.
     if stts == None:
         if not tarefas:
             print('Nenhuma tarefa cadastrada.\n')
@@ -27,6 +27,22 @@ def lista_tarefas(tarefas, stts=None):
                 print(f'TAREFA: {t["tarefa"]}')
                 print('-' * 40)
 
-# criar um historico de tarefas concluidas de mes e ano
 
-# criar também um menu para as opções
+def historico_mes(tarefas):   #Mostra os históricos por mês
+    mes_especifico = input('Digite o mês (MM) para ver o histórico de tarefas concluídas: ').strip()
+
+    for t in tarefas:
+        if t['concluida'] == True:
+            mes = t['data_criacao'][3:5]
+            if mes == mes_especifico:
+                print(f'\nN°: {t["N"]} - DATA DE CRIAÇÃO: {t["data_criacao"]}\n')
+                print(f'TAREFA: {t["tarefa"]} - STATUS: Concluída [✔️  ]')
+                print('-' * 60)
+
+    
+def limpar_terminal():  #limpa o terminal onde eu chamar a função.
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+
