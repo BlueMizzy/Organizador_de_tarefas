@@ -47,12 +47,12 @@ class Tarefas:
         for t in self.tarefas:
             if t['N'] == int(numero):
                 if t['concluida'] == True:
-                    print(f'>>> Tarefa já foi concluída: {t["tarefa"]} [✔️  ]\n')
+                    print(f'>>> Tarefa já foi concluída: {t["tarefa"]}\n')
                     return
                 
                 t['concluida'] = True
                 utils.salvar_dados(self.tarefas, 'tarefas.json')
-                print(f'>>> Tarefa concluída: {t["tarefa"]} [✔️  ]\n')
+                print(f'>>> Tarefa concluída: {t["tarefa"]}\n')
 
 
     def tarefas_concluidas(self):

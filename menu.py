@@ -57,6 +57,8 @@ def menu():
                 utils.lista_tarefas(trf.tarefas)
 
             case '6':
-                utils.historico_mes(trf.tarefas)
+                mes = input('Digite o mês (MM): ').strip()
+                utils.historico_mes(trf.tarefas, mes)
 
-
+        pausa = input('Pressione Enter para voltar ao menu:')
+        
