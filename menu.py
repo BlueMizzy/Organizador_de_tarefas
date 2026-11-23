@@ -10,9 +10,7 @@ def criar_menu(titulo, opcoes, tam=40):   #base do menu
             print(f'|{f'{numero} - {descricao}':<{tam}}|')
 
         print(f'+{"-" * tam}+')
-
-        op = input("Escolha: ")
-
+        op = input('Escolha: ').strip()
         if op in opcoes:
             utils.limpar_terminal()
             return op
@@ -57,8 +55,20 @@ def menu():
                 utils.lista_tarefas(trf.tarefas)
 
             case '6':
-                mes = input('Digite o mês (MM): ').strip()
-                utils.historico_mes(trf.tarefas, mes)
+                while True:
+                    mes = input('Digite o mês (01 a 12): ').strip()
+                    try:
+                        mes_int = int(mes)
+                    except ValueError:
+                        print('Digite o mês usando números, de 1 a 12.')
+                        continue
 
-        pausa = input('Pressione Enter para voltar ao menu:')
+                    if not 1 <= mes_int <= 12:
+                        print('O mês deve estar entre 1 e 12.')
+                        continue
+
+                    utils.historico_mes(trf.tarefas, mes_int)
+                    break
+                
+        # pausa = input('Pressione Enter para voltar ao menu:')
         
