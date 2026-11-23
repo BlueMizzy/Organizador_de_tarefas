@@ -13,7 +13,7 @@ O **Organizador de Tarefas** é uma aplicação de linha de comando desenvolvida
 ## Funcionalidades atuais
 
 * Adicionar novas tarefas com registro automático de data de criação
-* Concluir tarefas e atualizar status (`[✓]`)
+* Concluir tarefas e atualizar status
 * Listar tarefas pendentes
 * Listar tarefas concluídas
 * Visualizar todas as tarefas cadastradas
@@ -21,13 +21,13 @@ O **Organizador de Tarefas** é uma aplicação de linha de comando desenvolvida
 * Persistência de dados em arquivo `JSON` (`tarefas.json`)
 * Estrutura modularizada (`__main__.py`, `menu.py`, `tarefas.py`, `utils.py`)
 * Menu interativo no terminal utilizando `match/case`
+* Tratamento de erros e entradas inválidas com `try / except`
+* Função dinâmica para ajustar a linha separadora de acordo com o tamanho do texto da tarefa
 
 ---
 
 ## Planejamento futuro
 
-* Tratamento de erros e entradas inválidas com `try / except`
-* Função dinâmica para ajustar a linha separadora de acordo com o tamanho do texto da tarefa
 * Opção de confirmação antes de retornar ao menu principal para melhorar a experiência de leitura no terminal
 * Exportação de relatórios ou integração futura com banco de dados
 
